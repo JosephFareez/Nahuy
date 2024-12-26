@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Добро пожаловать, {{ user.username }}</h2>
+<p>Ваш кошелек: {{ user.wallet_address }}</p>
+<p>Ваши баллы: {{ user.points }}</p>
+<a href="{{ site_link }}">Перейти на сайт nahuy.online</a>
+
+<h3>Ваши задания:</h3>
+<ul>
+    {% for task in tasks %}
+        <li>
+            {{ task.title }} - {{ "Выполнено" if task.is_completed else "Не выполнено" }}
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

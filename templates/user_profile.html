@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Профиль пользователя</h2>
+<p>Имя пользователя: {{ user.username }}</p>
+<p>Кошелек: {{ user.wallet_address }}</p>
+<form action="/update-profile/" method="post">
+    {% csrf_token %}
+    <input type="text" name="wallet_address" placeholder="Новый адрес кошелька">
+    <button type="submit">Обновить</button>
+</form>
+{% endblock %}
